@@ -1,285 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="style.css" />
-    <title>Flavor Fusion</title>
-  </head>
-  <body>
-    <!-- header -->
-    <header>
-      <a href="#" class="logo"><img src="img/logo.png" alt="" /></a>
-      <div class="menuToggle" onclick="toggleMenu();"></div>
-      <ul class="navigation">
-        <li><a href="#" onclick="toggleMenu();">Home</a></li>
-        <li><a href="#about" onclick="toggleMenu();">About</a></li>
-        <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
-        <li><a href="#expert" onclick="toggleMenu();">Expert</a></li>
-        <li>
-          <a href="#testimonials" onclick="toggleMenu();">Testimonials</a>
-        </li>
-        <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
-      </ul>
-    </header>
-
-    <!-- banner/ hero image -->
-    <section class="banner" id="banner">
-      <div class="content">
-        <h2>Discover Gourmet Delights</h2>
-        <p>
-          Experience the Perfect Blend of Flavors, Crafted with Passion and
-          Culinary Expertise.
-        </p>
-        <a href="#menu" class="btn">Our Menu</a>
-      </div>
-    </section>
-
-    <!-- about section -->
-    <section class="about" id="about">
-      <div class="row">
-        <div class="col50">
-          <h2 class="titleText"><span>A</span>bout Us</h2>
-          <p>
-            Welcome to Flavor Fusion, where exceptional dining experiences await
-            you. Nestled in the heart of Jakarta, our restaurant is a haven for
-            food enthusiasts seeking delicious flavors and warm hospitality.
-            With a passion for culinary excellence, our team of skilled chefs
-            crafts each dish with meticulous attention to detail and a creative
-            flair. We take pride in sourcing the finest ingredients locally,
-            ensuring that every plate is a harmonious blend of freshness and
-            flavor.<br /><br />
-            Whether you're joining us for an intimate dinner, a celebratory
-            occasion, or simply a casual gathering with friends, our inviting
-            ambiance and friendly staff create a welcoming atmosphere that makes
-            you feel right at home. At Flavor Fusion, we believe that food is an
-            art form, and we strive to create memorable dining experiences that
-            delight the senses and leave a lasting impression. Join us and
-            embark on a culinary journey filled with delectable creations and
-            unparalleled service. We look forward to serving you and making your
-            visit truly exceptional.
-          </p>
-        </div>
-        <div class="col50">
-          <div class="imgBx">
-            <img src="img/2.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Menu section -->
-    <section class="menu" id="menu">
-      <div class="title">
-        <h2 class="titleText">Our <span>M</span>enu</h2>
-        <p>
-          Discover Our menu features a diverse selection of dishes inspired by
-          global cuisines, showcasing the freshest ingredients and bold flavors
-          that will leave you craving for more.
-        </p>
-      </div>
-      <div class="content">
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/menu1.jpg" />
-          </div>
-          <div class="text">
-            <h3>Special Salads</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/menu2.jpg" />
-          </div>
-          <div class="text">
-            <h3>Spaghetti</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/menu3.jpg" />
-          </div>
-          <div class="text">
-            <h3>Sushi</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/menu4.jpg" />
-          </div>
-          <div class="text">
-            <h3>Cheesecake</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/menu5.jpg" />
-          </div>
-          <div class="text">
-            <h3>Steak</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/menu6.jpg" />
-          </div>
-          <div class="text">
-            <h3>Margherita Pizza</h3>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <a href="#" class="btn">View All</a>
-      </div>
-    </section>
-
-    <!-- expert section  -->
-    <section class="expert" id="expert">
-      <div class="title">
-        <h2 class="titleText">Master of <span>F</span>lavors</h2>
-        <p>Introducing Our Culinary Maestro.</p>
-      </div>
-      <div class="content">
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/chef1.jpg" />
-          </div>
-          <div class="text">
-            <h3>Chef Marco Rossi</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/chef2.jpg" />
-          </div>
-          <div class="text">
-            <h3>Chef Gabriel Nguyen</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/chef3.jpg" />
-          </div>
-          <div class="text">
-            <h3>Chef Alejandro Ramire</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/chef4.jpg" />
-          </div>
-          <div class="text">
-            <h3>Chef Xavier Morales</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- testimonials  section -->
-    <section class="testimonials" id="testimonials">
-      <div class="title white">
-        <h2 class="titleText"><span>T</span>estimonials</h2>
-        <p>
-          Don't just take our word for it – here's what our delighted customers
-          have to say about their experiences at our restaurant.
-        </p>
-      </div>
-      <div class="content">
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/person1.jpg" />
-          </div>
-          <div class="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              blanditiis perferendis eos atque fuga praesentium sequi aut
-              cupiditate officiis quae. Sapiente ducimus quae eius illo in. Quos
-              id nam deserunt.
-            </p>
-            <h3>Lucas Anderson</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/person2.jpg" />
-          </div>
-          <div class="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              blanditiis perferendis eos atque fuga praesentium sequi aut
-              cupiditate officiis quae. Sapiente ducimus quae eius illo in. Quos
-              id nam deserunt.
-            </p>
-            <h3>Ava Patel</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="imgBx">
-            <img src="img/person3.jpg" />
-          </div>
-          <div class="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              blanditiis perferendis eos atque fuga praesentium sequi aut
-              cupiditate officiis quae. Sapiente ducimus quae eius illo in. Quos
-              id nam deserunt.
-            </p>
-            <h3>Lily Thompson</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- contact section -->
-    <section class="contact" id="contact">
-      <div class="title">
-        <h2 class="titleText"><span>C</span>ontact Us</h2>
-        <p>
-          We value your feedback, inquiries, and suggestions. Feel free to reach
-          out to us using the contact information provided below.
-        </p>
-      </div>
-      <div class="contactContainer">
-        <div class="contactForm">
-          <h3>Send Message</h3>
-          <div class="inputBox">
-            <input type="text" placeholder="Name" />
-          </div>
-          <div class="inputBox">
-            <input type="text" placeholder="Email" />
-          </div>
-          <div class="inputBox">
-            <textarea placeholder="Name"></textarea>
-          </div>
-          <div class="inputBox">
-            <input type="submit" value="Send" />
-          </div>
-        </div>
-        <div class="background">
-          <img src="img/background2.jpg" alt="" />
-        </div>
-      </div>
-    </section>
-
-    <!-- copyright -->
-    <div class="copyrightText">
-      <p>copyright 2023 All Right Reserved</p>
-    </div>
-
-    <script type="text/javascript">
-      window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        header.classList.toggle("sticky", window.scrollY > 0);
-      });
-
-      function toggleMenu() {
-        const menuToggle = document.querySelector(".menuToggle");
-        const navigation = document.querySelector(".navigation");
-        menuToggle.classList.toggle("active");
-        navigation.classList.toggle("active");
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#12100e" />
+    <meta
+      name="description"
+      content="Sela is a contemporary restaurant in Jakarta serving seasonal food shaped by fire, produce and the people who grow it. Reserve a table or explore the menu."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sela | Seasonal dining in Jakarta" />
+    <meta
+      property="og:description"
+      content="Seasonal cooking. Warm hospitality. A place to stay a little longer."
+    />
+    <meta property="og:image" content="/assets/hero.webp" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="/assets/hero.webp" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Sela | Seasonal dining in Jakarta</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Sela",
+        "description": "Seasonal contemporary dining in Jakarta",
+        "servesCuisine": "Contemporary",
+        "image": "/assets/hero.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "18 Jalan Senopati",
+          "addressLocality": "Jakarta Selatan",
+          "addressCountry": "ID"
+        },
+        "telephone": "+62 21 555 0188",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "17:30",
+            "closes": "22:00"
+          }
+        ]
       }
     </script>
+    <script id="menu-data" type="application/json">__MENU_JSON__</script>
+    <script type="module" src="/app.mjs?v=2"></script>
+  </head>
+  <body>
+    <div id="app"><p class="loading">Preparing your table…</p></div>
   </body>
 </html>
