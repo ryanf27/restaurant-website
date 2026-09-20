@@ -258,7 +258,8 @@ const server = http.createServer(async (req, res) => {
         pathname,
       );
     const dishSlug = pathname.match(/^\/menu\/([^/]+)\/?$/)?.[1];
-    const missingDish = dishSlug && !menu.some((item) => item.slug === dishSlug);
+    const missingDish =
+      dishSlug && !menu.some((item) => item.slug === dishSlug);
     const file =
       allowedFiles.get(pathname) ||
       (appRoute ||
@@ -276,7 +277,10 @@ const server = http.createServer(async (req, res) => {
       data = Buffer.from(
         data
           .toString("utf8")
-          .replace("__MENU_JSON__", JSON.stringify(menu).replace(/</g, "\\u003c")),
+          .replace(
+            "__MENU_JSON__",
+            JSON.stringify(menu).replace(/</g, "\\u003c"),
+          ),
       );
     }
     res.writeHead(
@@ -308,4 +312,5 @@ if (require.main === module)
       `Sela listening on http://localhost:${process.env.PORT || 3000}`,
     ),
   );
-module.exports = { server, validDate, openDate, slots };
+
+module.exports = server;
