@@ -122,3 +122,20 @@ test("menu images and local assets exist", async () => {
     }
   }
 });
+test("static Vercel page fetches menu data when no server embeds it", async () => {
+  const base = pathToFileURL(path.join(__dirname, "../app.mjs")).href;
+  document.querySelector = (selector) => {
+    if (selector === "#app") return app;
+    if (selector === "#menu-data") return { textContent: "__MENU_JSON__" };
+    return null;
+  };
+  let requestedUrl;
+  global.fetch = async (url) => {
+    requestedUrl = url;
+    return { ok: true, json: async () => menu };
+  };
+  location.pathname = "/menu";
+  await import(`${base}?static-vercel-test`);
+  assert.equal(requestedUrl, "/data/menu.json");
+  assert.match(app.innerHTML, /Brown Butter Scallops/);
+});

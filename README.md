@@ -18,6 +18,12 @@ Menu content lives in `data/menu.json`. Reservation and pickup submissions are c
 
 To use a separate data directory, set `SELA_DATA_DIR` before starting the server. The process needs write access to that directory. Local JSON storage suits a single Node instance and is not intended for multiple server replicas.
 
+## Deploy to Vercel
+
+The root files are deployed as static assets. `api/reservations.mjs` and `api/orders.mjs` are Vercel Functions, while `vercel.json` rewrites application routes to `index.html`. No Framework Preset or custom Build Command is required.
+
+On Vercel, demo submissions use the writable `/tmp` directory. That storage is ephemeral and can disappear between function instances or deployments. Connect the functions to durable storage before accepting real reservations or orders.
+
 ## Imagery
 
-The four WebP images in `assets/` were generated for this fictional brand and are referenced from the page and menu data. Replace them in place or update the paths in `data/menu.json` and `app.js`.
+The four WebP images in `assets/` were generated for this fictional brand and are referenced from the page and menu data. Replace them in place or update the paths in `data/menu.json` and `app.mjs`.

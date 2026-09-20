@@ -356,7 +356,14 @@ app.addEventListener("submit", (event) => {
   if (event.target.id === "order-form") submitForm(event, "order");
 });
 try {
-  menu = JSON.parse(document.querySelector("#menu-data").textContent);
+  const embeddedMenu = document.querySelector("#menu-data").textContent.trim();
+  if (embeddedMenu && embeddedMenu !== "__MENU_JSON__") {
+    menu = JSON.parse(embeddedMenu);
+  } else {
+    const response = await fetch("/data/menu.json");
+    if (!response.ok) throw new Error("Menu request failed");
+    menu = await response.json();
+  }
   render();
 } catch {
   app.innerHTML =
