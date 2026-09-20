@@ -72,3 +72,15 @@ test("Vercel functions provide default handlers and accept submissions", async (
   assert.equal(methodResponse.statusCode, 405);
   assert.equal(methodResponse.headers.allow, "POST");
 });
+
+test("browser application is only present in the static output directory", async () => {
+  const root = path.join(__dirname, "..");
+  const config = JSON.parse(await fs.readFile(path.join(root, "vercel.json"), "utf8"));
+  assert.equal(config.framework, null);
+  assert.equal(config.buildCommand, null);
+  assert.equal(config.outputDirectory, "public");
+  await assert.rejects(fs.access(path.join(root, "app.mjs")));
+  assert.ok((await fs.stat(path.join(root, "public/assets/client.mjs"))).size > 1000);
+  const html = await fs.readFile(path.join(root, "public/index.html"), "utf8");
+  assert.match(html, /\/assets\/client\.mjs\?v=4/);
+});

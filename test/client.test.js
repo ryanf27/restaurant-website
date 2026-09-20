@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
-const menu = require("../data/menu.json");
+const menu = require("../public/data/menu.json");
 const app = {
   innerHTML: "",
   listeners: {},
@@ -30,7 +30,7 @@ global.localStorage = {
   setItem() {},
 };
 test("client renders each app view from its route", async () => {
-  const base = pathToFileURL(path.join(__dirname, "../app.mjs")).href;
+  const base = pathToFileURL(path.join(__dirname, "../public/assets/client.mjs")).href;
   const cases = [
     ["/", "Good food."],
     ["/menu", "The menu"],
@@ -52,7 +52,7 @@ test("client renders each app view from its route", async () => {
   }
 });
 test("reservation submit uses the form and shows confirmation", async () => {
-  const base = pathToFileURL(path.join(__dirname, "../app.mjs")).href;
+  const base = pathToFileURL(path.join(__dirname, "../public/assets/client.mjs")).href;
   location.pathname = "/reservations";
   await import(`${base}?submit-test`);
   global.FormData = class {
@@ -117,13 +117,17 @@ test("reservation submit uses the form and shows confirmation", async () => {
 test("menu images and local assets exist", async () => {
   for (const item of menu) {
     if (item.image) {
-      const filename = path.join(__dirname, "..", item.image);
+      const filename = path.join(
+        __dirname,
+        "../public",
+        item.image.replace(/^\//, ""),
+      );
       assert.ok((await fs.stat(filename)).size > 1000, item.image);
     }
   }
 });
 test("static Vercel page fetches menu data when no server embeds it", async () => {
-  const base = pathToFileURL(path.join(__dirname, "../app.mjs")).href;
+  const base = pathToFileURL(path.join(__dirname, "../public/assets/client.mjs")).href;
   document.querySelector = (selector) => {
     if (selector === "#app") return app;
     if (selector === "#menu-data") return { textContent: "__MENU_JSON__" };
@@ -136,6 +140,7 @@ test("static Vercel page fetches menu data when no server embeds it", async () =
   };
   location.pathname = "/menu";
   await import(`${base}?static-vercel-test`);
+  await new Promise((resolve) => setImmediate(resolve));
   assert.equal(requestedUrl, "/data/menu.json");
   assert.match(app.innerHTML, /Brown Butter Scallops/);
 });

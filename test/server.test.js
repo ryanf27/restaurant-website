@@ -41,7 +41,7 @@ test("restaurant routes and assets are served", async () => {
     assert.doesNotMatch(html, /__MENU_JSON__/);
   }
   assert.equal((await fetch(base + "/assets/hero.webp")).status, 200);
-  const script = await fetch(base + "/app.mjs");
+  const script = await fetch(base + "/assets/client.mjs");
   assert.equal(script.status, 200);
   assert.match(script.headers.get("content-type"), /javascript/);
   assert.equal((await fetch(base + "/missing-page")).status, 404);

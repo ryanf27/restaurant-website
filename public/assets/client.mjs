@@ -355,17 +355,21 @@ app.addEventListener("submit", (event) => {
   if (event.target.id === "reservation-form") submitForm(event, "reservation");
   if (event.target.id === "order-form") submitForm(event, "order");
 });
-try {
-  const embeddedMenu = document.querySelector("#menu-data").textContent.trim();
-  if (embeddedMenu && embeddedMenu !== "__MENU_JSON__") {
-    menu = JSON.parse(embeddedMenu);
-  } else {
-    const response = await fetch("/data/menu.json");
-    if (!response.ok) throw new Error("Menu request failed");
-    menu = await response.json();
+async function loadApplication() {
+  try {
+    const embeddedMenu = document.querySelector("#menu-data").textContent.trim();
+    if (embeddedMenu && embeddedMenu !== "__MENU_JSON__") {
+      menu = JSON.parse(embeddedMenu);
+    } else {
+      const response = await fetch("/data/menu.json");
+      if (!response.ok) throw new Error("Menu request failed");
+      menu = await response.json();
+    }
+    render();
+  } catch {
+    app.innerHTML =
+      '<div class="load-error"><h1>We could not load the menu.</h1><p>Please refresh the page and try again.</p><button type="button" data-retry>Retry</button></div>';
   }
-  render();
-} catch {
-  app.innerHTML =
-    '<div class="load-error"><h1>We could not load the menu.</h1><p>Please refresh the page and try again.</p><button type="button" data-retry>Retry</button></div>';
 }
+
+loadApplication();

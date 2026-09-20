@@ -1,12 +1,36 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": "public",
   "rewrites": [
-    { "source": "/favicon.ico", "destination": "/assets/favicon.svg" },
-    { "source": "/menu", "destination": "/index.html" },
-    { "source": "/menu/:slug", "destination": "/index.html" },
-    { "source": "/reservations", "destination": "/index.html" },
-    { "source": "/order", "destination": "/index.html" },
-    { "source": "/about", "destination": "/index.html" },
-    { "source": "/contact", "destination": "/index.html" }
+    {
+      "source": "/favicon.ico",
+      "destination": "/assets/favicon.svg"
+    },
+    {
+      "source": "/menu",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/menu/:slug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/reservations",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/order",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html"
+    }
   ]
 }

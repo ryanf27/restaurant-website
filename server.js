@@ -10,12 +10,12 @@ const {
   slots,
 } = require("./api/_restaurant.cjs");
 
-const root = __dirname;
+const root = path.join(__dirname, "public");
 const allowedFiles = new Map([
   ["/", "index.html"],
   ["/index.html", "index.html"],
   ["/style.css", "style.css"],
-  ["/app.mjs", "app.mjs"],
+  ["/assets/client.mjs", "assets/client.mjs"],
   ["/data/menu.json", "data/menu.json"],
   ["/favicon.ico", "assets/favicon.svg"],
   ["/assets/favicon.svg", "assets/favicon.svg"],

@@ -3,7 +3,7 @@ const os = require("node:os");
 const path = require("node:path");
 const crypto = require("node:crypto");
 
-const menu = require("../data/menu.json");
+const menu = require("../public/data/menu.json");
 const slots = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"];
 const pickupSlots = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30"];
 const dataDir =
